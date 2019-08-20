@@ -47,6 +47,21 @@ Park.prototype.allDinosOfSpecies = function (species) {
   return foundDinos;
 };
 
+Park.prototype.removeAllDinosOfSpecies = function (species) {
+  let foundDinos;
+
+  for (let dinosaur of this.dinosaurs){
+    if (dinosaur.species === species) {
+      foundDinosaur = dinosaur
+    }
+  }
+
+  let index = this.dinosaurs.indexOf(foundDinosaur);
+
+  this.dinosaurs.splice(index, 1);
+};
+
+
 Park.prototype.visitorsPerDay = function(){
   total = 0
   for (let dinosaur of this.dinosaurs){
