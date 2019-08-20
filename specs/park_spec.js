@@ -57,15 +57,22 @@ describe('Park', function() {
   it('should be able to calculate total visitors per day', function(){
     park.addDinosaur(dinosaur1);
     park.addDinosaur(dinosaur2);
-    const actual = park.vistitorsPerDay();
+    const actual = park.visitorsPerDay();
     assert.strictEqual(actual, 100);
   });
 
   it("should be able to calculate total visitors per year", function(){
     park.addDinosaur(dinosaur1);
     park.addDinosaur(dinosaur2);
-    const actual = park.vistitorsPerYear();
+    const actual = park.visitorsPerYear();
     assert.strictEqual(actual, 36500);
+  });
+
+  it("should be able to calculate revenue for a year", function(){
+    park.addDinosaur(dinosaur1);
+    park.addDinosaur(dinosaur2);
+    const actual = park.revenuePerYear();
+    assert.strictEqual(actual, 3650000);
   });
 
   it('should be able to remove all dinosaurs of a particular species');

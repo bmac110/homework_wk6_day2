@@ -47,20 +47,24 @@ Park.prototype.allDinosOfSpecies = function (species) {
   return foundDinos;
 };
 
-Park.prototype.vistitorsPerDay = function(){
+Park.prototype.visitorsPerDay = function(){
   total = 0
   for (let dinosaur of this.dinosaurs){
     (total += dinosaur.guestsAttractedPerDay);
   }
   return total
-}
+};
 
-Park.prototype.vistitorsPerYear = function(){
+Park.prototype.visitorsPerYear = function(){
   total = 0
   for (let dinosaur of this.dinosaurs){
     (total += dinosaur.guestsAttractedPerDay * 365);
   }
   return total
-}
+};
+
+Park.prototype.revenuePerYear = function(){
+  return this.visitorsPerYear() * this.price;
+};
 
 module.exports = Park;
