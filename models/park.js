@@ -25,4 +25,42 @@ Park.prototype.removeDinosaur = function(name){
   this.dinosaurs.splice(index, 1);
 }
 
+Park.prototype.mostVisitorsAttracted = function(){
+  let popularDinosaur = this.dinosaurs[0];
+
+  for (dinosaur of this.dinosaurs){
+    if(dinosaur.guestsAttractedPerDay > popularDinosaur.guestsAttractedPerDay){
+      popularDinosaur = dinosaur;
+    }
+  }
+  return popularDinosaur;
+};
+
+Park.prototype.allDinosOfSpecies = function (species) {
+  const foundDinos = [];
+  for (let dinosaur of this.dinosaurs){
+    if (dinosaur.species === species) {
+      foundDinos.push(dinosaur)
+    }
+  }
+
+  return foundDinos;
+};
+
+Park.prototype.vistitorsPerDay = function(){
+  total = 0
+  for (let dinosaur of this.dinosaurs){
+    (total += dinosaur.guestsAttractedPerDay);
+  }
+  return total
+}
+
+Park.prototype.vistitorsPerYear = function(){
+  total = 0
+  for (let dinosaur of this.dinosaurs){
+    (total += dinosaur.guestsAttractedPerDay * 365);
+  }
+  return total
+}
+
 module.exports = Park;
